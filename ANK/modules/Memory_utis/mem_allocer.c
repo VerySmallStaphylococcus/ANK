@@ -29,7 +29,7 @@ int mempool_save32(memory_pool32 *pool, ANK_memory data, ptr32 *ptr) {
                     return 1;
             }
 
-            // ✅ 상태 설정 및 포인터 저장
+            // 상태 설정 및 포인터 저장
             pool->pool[i].state = 1;
             *ptr = i;
             pool->used++;
