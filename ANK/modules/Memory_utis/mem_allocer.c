@@ -107,7 +107,7 @@ int mempool_gdata32(memory_pool32 *pool, ptr32 ptr, ANK_memory *out_data) {
             return 1;  //undefined type
     }
 
-    return 0; //Success ✅ 
+    return 0; //Success 
 }
 
 int mempool_gdata64(memory_pool64 *pool, ptr64 ptr, ANK_memory *out_data)   {
