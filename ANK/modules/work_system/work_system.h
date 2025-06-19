@@ -11,4 +11,4 @@ typedef struct
     void *function_arg; // argument
 }ANK_WORK;
 
-void ANK_Work(ANK_WORK work);
+int ANK_Work(ANK_WORK work);

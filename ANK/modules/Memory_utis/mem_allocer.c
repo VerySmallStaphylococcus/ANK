@@ -9,7 +9,6 @@
 int mempool_save32(memory_pool32 *pool, ANK_memory data, ptr32 *ptr) {
     for (size32 i = 0; i < pool->pool_size; i++) {
         if (pool->pool[i].state == 0) {
-            // 빈 공간 발견 → 데이터 복사
             switch (data.data_type) {
                 case None:
                     return 1;
@@ -28,16 +27,14 @@ int mempool_save32(memory_pool32 *pool, ANK_memory data, ptr32 *ptr) {
                 default:
                     return 1;
             }
-
-            // 상태 설정 및 포인터 저장
             pool->pool[i].state = 1;
             *ptr = i;
             pool->used++;
-            return 0;  // 성공
+            return 0; 
         }
     }
 
-    return 1; // 할당 실패 (빈 공간 없음)
+    return 1;
 }
 //for 64bit
 int mempool_save64(memory_pool64 *pool, ANK_memory data, ptr64 *ptr) {
@@ -61,7 +58,6 @@ int mempool_save64(memory_pool64 *pool, ANK_memory data, ptr64 *ptr) {
                 default:
                     return 1;
             }
-
             pool->pool[i].state = 1;
             *ptr = i;
             pool->used++;
@@ -107,7 +103,7 @@ int mempool_gdata32(memory_pool32 *pool, ptr32 ptr, ANK_memory *out_data) {
             return 1;  //undefined type
     }
 
-    return 0; //Success 
+    return 0; //Success ✅ 
 }
 
 int mempool_gdata64(memory_pool64 *pool, ptr64 ptr, ANK_memory *out_data)   {
